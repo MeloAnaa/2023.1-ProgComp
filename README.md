@@ -11,6 +11,6 @@ Repositório de Códigos Exemplos da Disciplina PROGRAMAÇÃO DE COMPUTADORES
 <hr/>
 
 
-<p>Este repositório serve de suporte ao estudo da linguagem Python fornecendo diversos exemplos nasmais diversas aplicações.</p>
+<p>Este repositório serve de suporte a disciplina <b>TEC.0007 - Programação De Computadores (NCT)</b> do <b>Curso Superior de Tecnologia em Redes de Computadores</b>. 
 
-<p>A depender do exemplo a ser estudado, algumas bibliotecas deverão ser instaladas. Para isso deverá ser utilizado o instalador de pacotes PIP. Vejamos como utilizá-lo.</p>
+<p>Essa disciplina está sendo ministrada na utilizando a linguagem Python e a cada aula novos exemplos serão disponibilizados para servirem de base de estudo para os alunos.</p>
