@@ -1,6 +1,3 @@
-# 2023.1-ProgComp
-Repositório de Códigos Exemplos da Disciplina PROGRAMAÇÃO DE COMPUTADORES
-
 <p align="center">
   <img src="https://user-images.githubusercontent.com/23036697/179610525-9ee37437-9302-4681-a5e7-7ce84cd6776a.png" alt="accessibility text">
 </p>
