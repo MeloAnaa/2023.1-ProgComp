@@ -1,0 +1,11 @@
+#triangulo pitagorico
+
+a=int(input('informe o primeiro lado do triangulo:'))
+b=int(input('informe o segundo lado do triangulo:'))
+c=int(input('informe o terceiro lado do triangulo:'))
+formula= (a**2 + b**2 == c**2)
+
+if a and b and c >0 and a!= b and c and b!=a and c and c!=b and a:
+    print(f"{formula:.2f} :seu triangulo é pitagorico")
+else:
+    (f"{formula:.2f} :seu triangulo nao é pitagorico ")
