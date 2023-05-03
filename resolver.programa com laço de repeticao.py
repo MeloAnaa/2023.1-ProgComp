@@ -4,31 +4,33 @@ y>x'''
 
 x=int(input("informe o primeiro valor:"))
 y=int(input("informe o segundo valor:"))
-n= y-x+1
-soma= x+y *n /2
-
+ 
 if y>x:
-   print(f"{mult} + {x} = {x}+{y}")
-print(f"{mult} + {y} = {x}+{y}")
-   
-    
-
-'''
-valor= int(input("informe um valor inteiro positivo:"))
-mult=1
-
-if (valor >0):
-    print(f"{mult} x {valor} = {mult}*{valor}")
-    mult += 1 '''
+    n= y-x +1
+    soma= (y+x)*n/2
+    i=x
+    while i<=y:
+        print(f"a soma entre o primeiro valor {x} e o segundo valor {y} é {soma}")
+        i+=1
+else:
+    print("informe valores inteiros e positivos")
 
 
 
 
-'''valor= int(input("informe um valor inteiro positivo:"))
-if (valor >0):
-    while (mult <=10):
-        print(f"{mult} x {valor} = {mult*valor}")
-        mult +=1
-    else:
-        print("valor invalido") '''
 
+
+
+'''x = int(input("informe o primeiro valor:"))
+y = int(input("informe o segundo valor:"))
+
+if y > x:
+    n = y - x + 1
+    soma = (x + y) * n / 2
+    i = x
+    while i <= y:
+        print(i)
+        i += 1
+    print(f"A soma dos valores entre {x} e {y} é {soma}")
+else:
+    print("Valores inválidos")'''
