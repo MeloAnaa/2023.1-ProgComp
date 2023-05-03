@@ -1,0 +1,24 @@
+'''fzr um programa que solicite 2 valores inteiros positivos e imprima a soma de todos os 
+inteiros entre esses valores, incluindo eles.
+y>x'''
+
+x=int(input("informe o primeiro valor:"))
+y=int(input("informe o segundo valor:"))
+
+if y>x: 
+ n=y-x+1
+soma= (x+y) *n /2
+i=x
+while i<=y:
+    print(f"a soma entre o primeiro valor {x} e o segundo valor {y} é igual a {soma}")
+    i+=1
+if i>=y:
+    print("erro, o segundo valor precisa ser maior que o primeiro")
+
+
+
+
+
+'''
+valor= int(input("informe um valor inteiro positivo:"))
+mult=1
