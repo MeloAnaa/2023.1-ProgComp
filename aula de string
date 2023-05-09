@@ -1,0 +1,26 @@
+'''string'''
+
+
+'''o + eh o unico que pode ser usado como string'''
+
+
+'''.uper comverte a string pra maiusculo'''
+'''.lower converte em minusculo'''
+'''len(var) diz a quantidade de caractere de uma string'''
+
+combustivel="gasolina"
+valor_litro= "5,69".replace(',','.')
+
+tanque=40
+
+valor_tanque= tanque *valor_litro
+print(valor_litro)
+
+'''in verifica se o conteudo de uma variavel existe dentro da outra'''
+var_1 = 'instituto federal de educacao, ciencia e tecnologia do rn'
+var_2 ='educacao'
+
+if var_2 in var_1:
+    print("var_2 existe em var_1")
+else:
+    print("var_2 nao existe em var_1")
