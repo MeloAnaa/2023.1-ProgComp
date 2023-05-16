@@ -1,0 +1,33 @@
+#codigo que trauz a msg em criptografia
+
+
+#key vai ser inteiro, 
+#criptografar a msg 
+#funcao ascii = Ord()
+#saida = k[lsuxulks&tgzgr]
+
+
+'''usando for'''
+msg= ' eu moro em natal'
+key = 6
+msg_cripto =''
+for letra in msg:
+    letra_asc = ord(letra)
+    letra_asc += key
+    letra_cripto=chr(letra_asc)
+    msg_cripto += letra_cripto
+    print(msg_cripto)
+    
+
+'''usando while'''
+msg= 'eu moro em natal'
+key = 6
+posicao=0
+msg_cripto=''
+while posicao < len(msg):
+    letra_asc = ord(msg[posicao])
+    letra_asc += key
+    letra_cripto=chr(letra_asc)
+    msg_cripto += letra_cripto
+    posicao +=1
+    print(msg_cripto)
