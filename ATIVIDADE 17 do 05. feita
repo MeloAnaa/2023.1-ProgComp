@@ -1,21 +1,17 @@
-
 '''usando for'''
 
-frase = 'eu sou de natal'
-
-for letra in frase:
-    if letra == "e":
-        print('eu')
-    elif letra == "s":
-        print("sou")
-    elif letra == "d":
-        print('de')
-    elif letra == "n":
-        print("natal") 
+msg = input('digite uma mensagem')
+nova_msg = ' '
+for letra in msg:
+    if letra == ' ':
+        nova_msg += '\n'
+    else:
+        nova_msg += letra
+        print(nova_msg)
 
     
 '''usando while'''
-frase = 'eu sou de natal'
+frase = input('digite uma frase:')
 palavra = ''
 indice = 0
 
