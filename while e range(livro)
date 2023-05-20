@@ -1,0 +1,36 @@
+#while <condicao (ou um conjunto delas) for verdadeira>:
+    #instrucoes a serem executadas
+    #instrucoes a serem executadas apos o encerramento do loop
+
+#uma alternativa para soma dos dez primeiros numeros 
+soma = 0
+termo = 1
+while termo <=10:
+    soma += termo
+    termo += 1  #geracao do termo da pa, de razao 1
+    print(soma)
+
+
+
+
+
+#funcao range -bastante usada no for
+
+#list(range(3))   #Saída: [0, 1, 2]
+
+#list(range(10, 16)) #Incremento = 1: [10, 11, 12, 13, 14, 15]
+
+#list(range(16, 10, -1))#Incremento = -1: [16, 15, 14, 13, 12, 11]
+
+#list(range(10, 16, 2)) #Incremento = 2: [10, 12, 14]
+
+my_list = list(range(5))
+print(my_list)
+
+
+
+
+decreasing_numbers = list(range(10, 0, -1))
+print(decreasing_numbers)
+
+
