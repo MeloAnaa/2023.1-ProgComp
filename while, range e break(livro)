@@ -1,3 +1,9 @@
+
+'''Em geral, quando a quantidade de iterações é indeterminada, a estrutura while é uma 
+boa alternativa. Por outro lado, quando o número de iterações é definido, a estrutura for é bastante adequada'''
+
+
+
 #while <condicao (ou um conjunto delas) for verdadeira>:
     #instrucoes a serem executadas
     #instrucoes a serem executadas apos o encerramento do loop
@@ -32,5 +38,21 @@ print(my_list)
 
 decreasing_numbers = list(range(10, 0, -1))
 print(decreasing_numbers)
+
+
+#comando break
+'''ele tem o papel de quebrar a execucao de uma estrutura de repeticao,
+isto é, forcar a saida do fluxo do programa dentro do laço.'''
+
+print("*** Operação de divisão ***")
+while True:
+ n1 = int(input("Informe o primeiro número: "))
+ n2 = int(input("Informe o segundo número: "))
+ if n2 == 0:
+  print("Divisor não pode ser 0.\nPrograma será encerrado...")
+ break
+print(f"{n1} / {n2} = {(n1/n2):.2f}")
+print("*** Fim da operação de divisão ***")
+
 
 
