@@ -1,0 +1,17 @@
+
+valor=int(input("digite um valor inteiro:"))
+
+
+while (valor > 0):
+    if  (valor % 2 != 0 ):
+      print("numero impar")
+      break
+    if valor == 0:
+        print("programa encerrado")
+        break
+    else:
+      print("numero par")
+      break
+    
+
+
