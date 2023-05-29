@@ -1,0 +1,29 @@
+#explicar e simplificar codigo
+
+def numero_digitos(num):
+    i = 0
+    while num > 0:
+        num //= 10
+        i+=1
+
+    return i
+
+def soma(num):
+    i = numero_digitos(num)
+    s = 0
+    
+    while num > 0:
+        digit = num % 10
+        num //= 10
+        s += pow(digit, i)
+        
+    return s
+
+num = int(input("digite um numero:"))
+s = soma(num)
+     
+if s == num:
+    print("é um numero Armstrong ")
+else:
+    print("nao é um numero Armstrong ")
+
