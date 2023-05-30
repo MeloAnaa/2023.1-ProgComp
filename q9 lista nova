@@ -1,0 +1,18 @@
+def sequencia_fibonacci(n):
+    fibonacci = [1, 1]  # Inicializa a lista com os dois primeiros números da sequência
+
+    # Calcula os próximos números da sequência até chegar a N elementos
+    while len(fibonacci) < n:
+        proximo_numero = fibonacci[-1] + fibonacci[-2]
+        fibonacci.append(proximo_numero)
+
+    return fibonacci
+
+# Solicitar o valor N ao usuário
+N = int(input("Digite um valor N para a sequência de Fibonacci: "))
+
+# Obter a sequência de Fibonacci
+fibonacci = sequencia_fibonacci(N)
+
+# Exibir os N primeiros números da sequência
+print(fibonacci)
