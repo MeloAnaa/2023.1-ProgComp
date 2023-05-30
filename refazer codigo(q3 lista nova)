@@ -1,29 +1,30 @@
 #explicar e simplificar codigo
 
-def numero_digitos(num):
-    i = 0
-    while num > 0:
-        num //= 10
+#def declara uma funcao, os argumentos vao em ()  impottante usar return
+
+nmr = int(input("digite um numero:"))
+
+def digito(nmr):
+    i=0
+    while nmr >0:
+        nmr //= 10
         i+=1
 
     return i
 
-def soma(num):
-    i = numero_digitos(num)
+def soma(nmr):
+    i = digito(nmr)
     s = 0
-    
-    while num > 0:
-        digit = num % 10
-        num //= 10
+
+    while nmr > 0:
+        digit = nmr %10
+        nmr//= 10
         s += pow(digit, i)
-        
-    return s
 
-num = int(input("digite um numero:"))
-s = soma(num)
-     
-if s == num:
-    print("é um numero Armstrong ")
+        return s 
+
+s = soma(nmr)
+if s == nmr:
+    print("é um numero armstrong")
 else:
-    print("nao é um numero Armstrong ")
-
+        print("nao é um nmr armstrong")
