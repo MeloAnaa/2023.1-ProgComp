@@ -1,5 +1,3 @@
-#explicar e simplificar codigo
-
 #def declara uma funcao, os argumentos vao em ()  impottante usar return
 
 nmr = int(input("digite um numero:"))
