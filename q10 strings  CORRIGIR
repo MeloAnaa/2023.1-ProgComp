@@ -5,6 +5,8 @@ palavra=str(input("digite uma palavra para verificar se é  palíndromos: "))
 if palavra ==str:
      palavra(len) 
      backwards = palavra [::-1]
-     print(f"{palavra} é  palíndromos ")
+     palavra == backwards
+elif print (f'{palavra} é  palíndromos')
 else:
     print(f"{palavra} nao é  palíndromos")
+
