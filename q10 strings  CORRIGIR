@@ -1,20 +1,10 @@
- esse programa precisa ser corrigo no seguinte, existem diversas palavras palindromo, pois se refere a uma palavra q pode ser lida de tras pra frente com mesmo significado, esse programa so se baseia em 4 palavras.
-'''frase = str(input("digite uma frase para verificar se é um  palíndromos"))
+#corrigir
 
-while frase != ' ':
- frase =len(frase)
-frase == "Socorram-me subi no onibus em Marrocos",
-frase== "Oitiram radar maritmo"
-frase== "Anotaram a data da maratona"
-frase== 'Amo a maça da amada amada da maça'
-print("é um palíndromo.") '''
+palavra=str(input("digite uma palavra para verificar se é  palíndromos: "))
 
-
-frase = str(input("Digite uma frase para verificar se é um palíndromo: "))
-
-frase = frase.replace(' ', '').replace('-', '')  # Remover espaços e o caractere '-' da frase
-
-if frase.lower() == frase.lower()[::-1]:  # Verificar se a frase é um palíndromo
-    print("É um palíndromo.")
+if palavra ==str:
+     palavra(len) 
+     backwards = palavra [::-1]
+     print(f"{palavra} é  palíndromos ")
 else:
-    print("Não é um palíndromo.")
+    print(f"{palavra} nao é  palíndromos")
