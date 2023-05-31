@@ -1,0 +1,20 @@
+
+'''frase = str(input("digite uma frase para verificar se é um  palíndromos"))
+
+while frase != ' ':
+ frase =len(frase)
+frase == "Socorram-me subi no onibus em Marrocos",
+frase== "Oitiram radar maritmo"
+frase== "Anotaram a data da maratona"
+frase== 'Amo a maça da amada amada da maça'
+print("é um palíndromo.") '''
+
+
+frase = str(input("Digite uma frase para verificar se é um palíndromo: "))
+
+frase = frase.replace(' ', '').replace('-', '')  # Remover espaços e o caractere '-' da frase
+
+if frase.lower() == frase.lower()[::-1]:  # Verificar se a frase é um palíndromo
+    print("É um palíndromo.")
+else:
+    print("Não é um palíndromo.")
