@@ -1,4 +1,4 @@
-
+ esse programa precisa ser corrigo no seguinte, existem diversas palavras palindromo, pois se refere a uma palavra q pode ser lida de tras pra frente com mesmo significado, esse programa so se baseia em 4 palavras.
 '''frase = str(input("digite uma frase para verificar se é um  palíndromos"))
 
 while frase != ' ':
