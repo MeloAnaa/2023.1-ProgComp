@@ -1,0 +1,13 @@
+def verificar_perfeito(n):
+    soma_divisores = sum(i for i in range(1, n) if n % i == 0)
+    return soma_divisores == n
+def verificar_perfeito(n): - Aqui estamos definindo uma função chamada verificar_perfeito que recebe um parâmetro n. Essa função será usada para verificar se n é um número perfeito.
+soma_divisores = sum(i for i in range(1, n) if n % i == 0) - Nesta linha, utilizamos uma expressão geradora para criar uma sequência de divisores de n. A expressão i for i in range(1, n) if n % i == 0 gera todos os números i que estão no intervalo de 1 a n-1 e que são divisores de n. Essa sequência é passada para a função sum() que calcula a soma de todos esses números e atribui o resultado à variável soma_divisores.
+return soma_divisores == n - A função verificar_perfeito retorna True se a soma_divisores for igual a n, o que significa que n é um número perfeito. Caso contrário, retorna False
+
+
+numero = int(input("Digite um número inteiro e positivo: "))
+if verificar_perfeito(numero):
+    print(f"{numero} é um número perfeito.")
+else:
+    print(f"{numero} não é um número perfeito.")
