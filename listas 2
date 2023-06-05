@@ -1,0 +1,14 @@
+
+'''fazer um programa que solicite um valor inteiro positivo e salva em uma lista os numeros
+divisiveis por 3 compreendidos entre 0 e o numero informado'''
+
+div_3 = list()
+limite = int(input("informe um valor inteiro positivo:"))
+
+if limite >=0:
+    for valor in range(limite+1):
+        if (valor % 3 ==0):
+            div_3.append(valor)
+            print(div_3)
+else:
+    print("valor invalido")
