@@ -1,0 +1,43 @@
+
+'''fazer um programa que solicite o nome de 5 alunos, suas respectivas notas(etapa 1 e 2). 
+calcule sua media(adotando o calculo da media ifrn)
+e no final exiba os dados informados ''' 
+
+'''
+-listas(list)    =mais flexivel
+-tuplas(tuple)
+-sets(set)
+-dicionarios(dictionarys)   
+'''
+
+nome_aluno= list()          #nome=[]
+
+nota_etapa_1 = list()
+nota_etapa_2 = list()
+
+cont_aluno = 1
+while cont_aluno <= 5:
+     print(f'\ndados do aluno{cont_aluno}')
+     nome= input("informe o nome do aluno:")
+     nota_1 = int(input("informe a nota da etapa 1:"))
+     #fazer validacao de nota1 >= o e >= 100
+     nota_2 = int(input("informe a nota da etapa 2:"))
+     #fazer validacao de nota_2 >=0 e <= 100
+
+     nome_aluno.append(nome)
+     nota_etapa_1.append(nota_1)
+     nota_etapa_2.append(nota_2)
+     
+     cont_aluno +=1
+    
+pos = 0 
+print("\nrelacacao de alunos informados:")
+while cont_aluno <=4:
+    media = int((nota_etapa_1[pos] * 2 + nota_etapa_2[pos] * 3) / 5)
+    print(f'{nome_aluno[pos]:>30} {nota_etapa_1[pos]:>3} {nota_etapa_2[pos]:>3} {media:>3}')
+    pos += 1 
+    '''print(nome_aluno)                     
+    print(nota_etapa_1)                                             
+    print(nota_etapa_2)                                                        
+    cont_aluno +=1 '''
+
