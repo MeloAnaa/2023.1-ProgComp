@@ -1,0 +1,13 @@
+pop()
+ nome_da_lista.pop(indice)
+ variavel = nome_da_lista.pop(indice)
+ 
+ 
+remove()
+ nome_da_lista.remove(valor)
+ 
+del
+ del nome_da_lista[indice]
+clear()
+ nome_da_lista.clear()
+ 
