@@ -1,0 +1,25 @@
+'''faca um programa que leia 5 valores e guarde
+em uma lista.'''
+'''no final, mostre qual foi o maior e o menor e as suas
+posicoes na lista'''
+
+# Criando uma lista vazia para armazenar os valores
+valores = []
+
+# Lendo os valores e adicionando à lista
+for i in range(5):
+    valor = int(input("Digite um valor: "))
+    valores.append(valor)
+
+# Encontrando o maior e o menor valor e suas posições
+maior_valor = max(valores)
+menor_valor = min(valores)
+posicao_maior = valores.index(maior_valor)
+posicao_menor = valores.index(menor_valor)
+
+# Mostrando os resultados
+print("Valores digitados:", valores)
+print("Maior valor:", maior_valor)
+print("Posição do maior valor na lista:", posicao_maior)
+print("Menor valor:", menor_valor)
+print("Posição do menor valor na lista:", posicao_menor)
