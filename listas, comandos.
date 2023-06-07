@@ -11,3 +11,11 @@ del
 clear()
  nome_da_lista.clear()
  
+ lanche.insert(posicao_da_lista, elemento)
+ 
+ if pizza in lanche:
+  lanche.remove(pizza)
+ 
+ 
+ valores=[,21,4,31,23,2]
+ valores.sort      #ordena os valores da lista
