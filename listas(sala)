@@ -1,0 +1,68 @@
+
+import sds ------------------------> baixar file 'valores' do professor
+
+qt_elementos = len(sds.lista)
+print(f"\n A lista posssui {qt_elementos} elementos")
+
+lista_pares = list()
+lista_impares= list()
+
+#percorrer cada elemento da lista e se o elemento for 
+# par eledevera ser adicionado a lista_pares e se for 
+#impar ele devera ser adicionado a lista_impares
+
+
+for x in sds.lista:
+    if (x % 2==0):
+        lista_pares.append(x)
+else:
+    lista_impares.append(x)
+
+print(f"\n na lista pares possui {len(lista_pares)} elementos")
+print(f"\n na lista impares possui {len(lista_impares)} elementos ")
+
+
+   #maneira mais facil de adicionar valores a lista
+'''lista_pares = [x for x in sds.lista if x %2 ==0]    
+lista_impares = [x for x in sds.lista if x %2 !=0 ] 
+print(f"\n na lista pares possui {len(lista_pares)} elementos")
+print(f"\n na lista impares possui {len(lista_impares)} elementos ") '''
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import random
+
+lista = list()
+#usando for
+for i in range(10000):
+    lista.append(random.randint(100, 10000))
+    
+#usando while
+contador = 1
+while contador <= 10000:
+    lista.append(random.randint(100,10000))
+    contador += 1 
+
+#usando lc
+lista = [random.randint(100,10000) for _ in range(10000)]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import sds
+
+valor = int(input("digite um valor inteiro:"))
+
+if valor in sds.lista:
+    print(f"o valor {valor} esta na lista...")
+    ocorrencias = sds.lista.count(valor)
+    print(f"o {valor} aparece {ocorrencias} vezes  ")
+else:
+    print(f" o valor {valor} nao esta na lista...")
+
+
+'''qt_elementos = len(valor)
+print(f"\n A lista posssui {valor} elementos") '''
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+   
+
+
