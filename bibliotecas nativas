@@ -1,0 +1,8 @@
+import
+
+sys (manipulacao de sistema op)   
+os (caprturar informacoes do sistema/diretorios)
+random (valores aleatorios)
+statistics (funcoes estatisticas/media/mediana/dv)
+datetime (Ddata e hora)
+numpy(trabalhar com lista)
