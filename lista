@@ -1,0 +1,50 @@
+siglas = ['AL', 'BA', 'CE', 'MA', 'PB', 'PE', 'PI', 'RN', 'SE']
+
+capitais = ['Maceió', 'Salvador', 'Fortaleza', 'São Luís', 'João Pessoa', 
+            'Recife', 'Teresina', 'Natal', 'Aracaju']
+
+populacao = [1018948, 2872347, 2669342, 1101884, 809015, 1695727,
+             868075, 890480, 657013]
+
+
+nordeste= list() 
+
+for p in range (len(siglas)):
+    nordeste.append([siglas[p], capitais[p], populacao[p]]) 
+
+print(nordeste, '\n')
+ #ordenar a lista nordeste pelo nome da capital (a-z)   
+nordeste.sort(key = lambda n:n[1])
+
+print('\ncapitais do nordeste - ordenadas alfabeticamente')
+soma_pop= 0
+for c in nordeste:
+    print(f"{c[1]}/ {c[0]} - populacao: {c[2]}")  #{c[1]: >11}
+    soma_pop +=c[2]
+print('-' * 50)
+print(f'populacao total ne: {soma_pop}')
+print(f'media capitais: {soma_pop/len(nordeste)}')
+
+#ordenar a lista nordeste pelo populacao (9-0)   
+nordeste.sort(key = lambda n:n[2], reverse=True)
+soma_pop= 0
+for c in nordeste:
+    print(f"{c[1]}/ {c[0]} - populacao: {c[2]}")  #{c[1]: >11}
+    soma_pop +=c[2]
+print('-' * 50)
+print(f'populacao total ne: {soma_pop}')
+print(f'media capitais: {soma_pop/len(nordeste)}')
+
+#filtrar as capitais com populacao >=1000000
+filtro = lambda n:n[2] >= 1000000
+nordeste_filtro =  filter(filtro, nordeste)
+print('\ncapitais do nordeste - populacao >=1000000')
+soma_pop= 0
+for c in nordeste_filtro:
+    print(f"{c[1]}/ {c[0]} - populacao: {c[2]}")  #{c[1]: >11}
+    soma_pop +=c[2]
+print('-' * 50)
+print(f'populacao total ne: {soma_pop}')
+print(f'media capitais: {soma_pop/len(nordeste)}')
+
+#ordenar para depois filtrar é mais rapido do que filtrar e depois ordenar.
