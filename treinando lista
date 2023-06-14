@@ -1,0 +1,16 @@
+#treinando lista
+
+lista = ['item1', ['python', 'Academy'], 'item3']
+print(lista[1][0])
+
+#fatiamento
+lista = [10, 20, 30, 40, 50]
+print(lista[2:5])
+
+#percorrendo lista- uso de loop
+
+#funcao enumerate() - percorre o indice referente a cada valor da lista
+lista = [10, 20, 30, 40, 50, 60]
+for indice, valor in enumerate(lista):
+    print(f'indice = {indice} , valor = {valor}')
+
