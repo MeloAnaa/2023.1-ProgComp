@@ -1,0 +1,50 @@
+#metodo sort e sorted
+
+lista_sigla = ['ba', 'rn' , 'ce ', 'ma' , ]
+
+print(lista_sigla)
+
+#ordenando a variavel lista_sigla
+lista_sigla.sort()
+print(lista_sigla) #sera impresso em ordem alfabetica ja que n foi inforfamdo nenhum parametro
+
+#ordenando a variavel lista_sigla em ordem reversa
+lista_sigla.sort(reverse =True)
+print(lista_sigla)
+
+#quando a lista possuir, ao inves de um unico valor em cada posicao, possuir
+#uma lista contendo diversos valores. onde nao queremos utilizar o primeiro valor
+#de cada lista como chave de ordenacao?
+
+lista_estados = [
+       ['ba', 'salvador', 3948394],
+       ['rn', 'natal', 934893],
+    ]
+
+print(lista_estados)
+
+lista_estados.sort()
+print(lista_estados)
+
+#ordenando a variavel lista_estados usando a coluna 1 ordenador
+lista_estados.sort(key = lambda coluna:coluna[1])
+print(lista_estados)
+
+
+
+#o metodo sort() nao retorna um valor(none). a ordenacao que ele realiza é sobre
+#a propria lista, porem quando queremos ordenar uma lista, retornando-a para outra
+#lista usamos a funcao sorted()
+#a funcao sorted() permite ordenar os valores de uma lista, retornando uma lista como resultado.
+
+
+lista_sigla2 = ['ba', 'rn', 'ce', 'pe']
+print(lista_sigla2)
+
+#ordenando a variavel lista
+lista_sigla2 = sorted(lista_sigla2)
+print(lista_sigla2)
+
+
+
+
