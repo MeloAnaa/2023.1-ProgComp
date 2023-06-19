@@ -1,0 +1,18 @@
+#usar o sort pra ordenar, e quando o n ultrapassar a quantidade de elementos, ele elimina o ultimo e ordenar dnv
+
+x = int(input("digite a quantidade de elementos da lista:"))
+lista =[]
+
+if x ==0:
+    print("a quantidade de elementos precisa ser positivo")
+
+for i in range(x):
+     n = int(input("digite um valor:"))
+     if n ==0:
+      print("O valor nao pode ser zero, fim do programa.")
+      break
+     lista.append(n).sort()
+     print(f"a quantidade de elementos da lista é: {lista}")
+
+    
+
