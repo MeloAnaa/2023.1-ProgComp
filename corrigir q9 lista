@@ -1,0 +1,21 @@
+# quais posicoes o n aparece
+
+import random
+
+lista = [random.randint(0,1000) for _ in range(10000)]
+
+n = int(input("Digite um valor : "))
+if n <= 0:
+    print("o valor precisa ser positivo.")
+elif n not in lista:
+    print(f" o numero  {n} nao faz parte da lista")
+else:
+    ocorrencias = lista.count(n)
+    print(f"o numero {n} esta na lista")
+    print(f"o numero {n} aparece {ocorrencias} vezes na lista.")
+    
+
+# quais posicoes o n aparece
+
+    for indice, n in enumerate(lista):
+     print(f'indice = {indice} , valor = {n}')
