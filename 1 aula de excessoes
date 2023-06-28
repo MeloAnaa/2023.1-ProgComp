@@ -1,0 +1,44 @@
+'''try:
+  d1= int(input("digite d1:"))
+  d2 = int(input("digite d2:"))
+
+  q = d1/d2
+  print(f'{d1} / {d2} = {q}')
+
+except:  # ou except valuerror
+ print('erro: valor informado nao é inteiro')
+
+else:
+ print("calculado com sucesso")
+
+finally:
+ print('fim do programa') '''
+
+
+
+
+
+import sys
+try:
+  d1= int(input("digite d1:"))
+  d2 = int(input("digite d2:"))
+
+  q = d1/d2
+  print(f'{d1} / {d2} = {q}')
+
+except ValueError:
+ print('erro: valor informado nao é um inteiro')
+except ZeroDivisionError:
+ print('erro: divisao por zero(d2!=0)')
+except:
+ print(f'erro:{sys.exc_info()[0]}')  # print(f'erro:{sys.exc_info()[0]}') --> tratar de dados genericos
+else:
+ print('tudo ok')
+finally:
+ print('fim')
+
+
+#obs: open dentro do try
+#close do arquivo dentro do else
+#dentro da lista de arquivos tratar execessoes
+#os exemplos estao no git 1,2,3, 
