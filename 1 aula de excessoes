@@ -33,12 +33,10 @@ except ZeroDivisionError:
 except:
  print(f'erro:{sys.exc_info()[0]}')  # print(f'erro:{sys.exc_info()[0]}') --> tratar de dados genericos
 else:
- print('tudo ok')
+ print('ok')
 finally:
  print('fim')
 
 
 #obs: open dentro do try
 #close do arquivo dentro do else
-#dentro da lista de arquivos tratar execessoes
-#os exemplos estao no git 1,2,3, 
