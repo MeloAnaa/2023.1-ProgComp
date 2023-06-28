@@ -1,3 +1,4 @@
+
 '''try:
   d1= int(input("digite d1:"))
   d2 = int(input("digite d2:"))
@@ -5,7 +6,7 @@
   q = d1/d2
   print(f'{d1} / {d2} = {q}')
 
-except:  # ou except valuerror
+except:
  print('erro: valor informado nao é inteiro')
 
 else:
@@ -40,3 +41,4 @@ finally:
 
 #obs: open dentro do try
 #close do arquivo dentro do else
+
