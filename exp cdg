@@ -1,0 +1,28 @@
+cedulas_moedas = [100, 50, 20, 10, 5, 2, 1, 0.5, 0.25, 0.10, 0.05, 0.01]
+saques = []
+
+while True:
+    valores = []
+    for cedula_moeda in cedulas_moedas:
+        valor = float(input(f"Digite o valor do saque para notas/moedas de R$ {cedula_moeda:.2f}: "))
+        if valor == 0:
+            break
+        valores.append(valor)
+    if len(valores) == 0:
+        break
+
+    quantidade = list(map(int, [valor // cedula_moeda for valor, cedula_moeda in zip(valores, cedulas_moedas)]))
+    total_dispensado = sum(qtd * cedula_moeda for qtd, cedula_moeda in zip(quantidade, cedulas_moedas))
+    
+    saques.append([total_dispensado, quantidade])
+
+for saque in saques:
+    print(f"Saque {saques.index(saque) + 1}:")
+    for cedula_moeda, qtd in zip(cedulas_moedas, saque[1]):
+        print(f"Quantidade de notas/moedas de R$ {cedula_moeda:.2f}: {qtd}")
+    
+    print(f"Valor total dispensado: R$ {saque[0]:.2f}\n")
+
+
+''' zip é usado quando queremos percorrer mais de uma lista ao mesmo tempo, pois ela elimina a possbilidade
+de usar loops aninhados'''
