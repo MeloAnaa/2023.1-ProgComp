@@ -1,0 +1,12 @@
+import cotacao 
+
+lista = ' '
+mes = list()
+maior_cotacao = list()
+data_maior_cotacao = list()
+
+for i in cotacao:
+   max(mes) in lista
+   lista.append(mes)
+
+
