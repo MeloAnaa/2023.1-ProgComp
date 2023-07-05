@@ -12,8 +12,8 @@ print(dirapp)
 
 
 #mudar esse trecho
-with open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8') as arq_input:
-    linhas = arq_input.readlines() 
+'''with open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8') as arq_input:
+    linhas = arq_input.readlines()  '''
 
 
 lstdados = [linha.strip().split(';') for linha in linhas[1:]]
