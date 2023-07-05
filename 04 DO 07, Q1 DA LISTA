@@ -4,21 +4,26 @@ a segunda a quantidade de docentes daquele campus e a terceira a quantidade de t
 Essa lista deverá ser exibida na tela e em seguida deverá ser salva em um arquivo chamado servidores_campi.csv (separar os dados por ;);'''
 
 
-# Abrindo o arquivo de input em modo somente leitura
+import os
+dirapp = os.path.abspath(__file__)    
+print(dirapp)
+dirapp = os.path.dirname(dirapp)
+print(dirapp)
+
+
+#mudar esse trecho
 with open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8') as arq_input:
-    linhas = arq_input.readlines()
+    linhas = arq_input.readlines() 
 
-# Removendo o cabeçalho e dividindo as linhas em uma lista de listas
+
 lstdados = [linha.strip().split(';') for linha in linhas[1:]]
-
 # Criando uma lista para armazenar os dados de contagem de cada campus
 campi = []
-
 # Iterando sobre as linhas de dados e contando os tipos de campus
-for linha in lstdados:
+for linha in lstdados:       
     sigla_campus = linha[0]
     tipo_servidor = linha[1]
-
+ 
     campus_existente = None
     for campus in campi:
         if campus[0] == sigla_campus:
@@ -35,21 +40,17 @@ for linha in lstdados:
         campus_existente[2] += 1
 
 # Exibindo as contagens de cada campus
-for campus in campi:
+for campus in lstdados:
     print(f"Campus: {campus[0]}")
     print(f"Quantidade de docentes: {campus[1]}")
     print(f"Quantidade de técnicos administrativos: {campus[2]}")
-    print()
-
+   
 # Salvando os dados em um arquivo
 with open('servidores_campi.csv', 'w', encoding='utf-8') as arq_output:
     arq_output.write('sigla_campus;docentes;tecnicos_administrativos\n')
     for campus in campi:
         arq_output.write(';'.join(map(str, campus)) + '\n')
-
-
-
-
+arq_output.close()
 
 
 
