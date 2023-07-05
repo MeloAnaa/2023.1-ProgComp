@@ -4,50 +4,48 @@ a segunda a quantidade de docentes daquele campus e a terceira a quantidade de t
 Essa lista deverá ser exibida na tela e em seguida deverá ser salva em um arquivo chamado servidores_campi.csv (separar os dados por ;);'''
 
 
+# Abrindo o arquivo de input em modo somente leitura
+with open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8') as arq_input:
+    linhas = arq_input.readlines()
 
-#para n dar o erro 'no such file or directory'
-import os
-dirapp = os.path.abspath(__file__)    
-print(dirapp)
-dirapp = os.path.dirname(dirapp)
-print(dirapp)
+# Removendo o cabeçalho e dividindo as linhas em uma lista de listas
+lstdados = [linha.strip().split(';') for linha in linhas[1:]]
 
-#abrindo o arquivo de input em modo somente de leitura
-arq_input = open ('relacao_servidores_ifrn.csv' , 'r' , encoding = 'utf-8') # ou  'servidores.csv' caso nao tenha erro
-lstdados= list()
-lstcabecalhos= list()
-lstcabecalhos.append(arq_input.readline()[:-1].split(';'))
-print(lstcabecalhos)
+# Criando uma lista para armazenar os dados de contagem de cada campus
+campi = []
 
+# Iterando sobre as linhas de dados e contando os tipos de campus
+for linha in lstdados:
+    sigla_campus = linha[0]
+    tipo_servidor = linha[1]
 
-while True:
-    linha= arq_input.readline()[:-1]  #tira o enter do final[:-1]
-    if not linha: break
-    linha =linha.split(';')
-    lstdados.append(linha)
+    campus_existente = None
+    for campus in campi:
+        if campus[0] == sigla_campus:
+            campus_existente = campus
+            break
 
-tipos =set  (map(lambda t:t[0] , lstdados))
-lsttipos = list()
-print(tipos)
+    if campus_existente is None:
+        campus_existente = [sigla_campus, 0, 0]
+        campi.append(campus_existente)
 
-for tipo in tipos:
-    filtro=lambda f:f[0] ==tipo
-    lstfiltro = list(filter(filtro,lstdados))
-    lsttipos.append([tipo, len(lstfiltro)])
-print(lsttipos)
+    if tipo_servidor == 'Docente':
+        campus_existente[1] += 1
+    elif tipo_servidor == 'Técnico Administrativo':
+        campus_existente[2] += 1
 
+# Exibindo as contagens de cada campus
+for campus in campi:
+    print(f"Campus: {campus[0]}")
+    print(f"Quantidade de docentes: {campus[1]}")
+    print(f"Quantidade de técnicos administrativos: {campus[2]}")
+    print()
 
-
-#exemplo para quando for salvar o codigo
-arq_output = open(dirapp + '\\ servidores_campi.csv' , 'w', encoding = 'utf-8')
-arq_output.write('tipo_servidor ; quantidade\n')
-for x in lsttipos:
-    arq_output.write(f'{x[0]} ; {x[1]}\n')
-arq_output.close()
-
-
-
-
+# Salvando os dados em um arquivo
+with open('servidores_campi.csv', 'w', encoding='utf-8') as arq_output:
+    arq_output.write('sigla_campus;docentes;tecnicos_administrativos\n')
+    for campus in campi:
+        arq_output.write(';'.join(map(str, campus)) + '\n')
 
 
 
