@@ -1,61 +1,58 @@
-'''com o arquivo de relacao servidoress ifrn,csv ja criado no diretorio A partir do arquivo relacao_servidores_ifrn.csv, fazer um programa que:
-Montar uma lista onde cada posição deverá ser uma sub-lista. A primeira posição de cada sub-lista deverá ser a sigla do campus,
-a segunda a quantidade de docentes daquele campus e a terceira a quantidade de técnicos administrativos daquele campus;
-Essa lista deverá ser exibida na tela e em seguida deverá ser salva em um arquivo chamado servidores_campi.csv (separar os dados por ;);'''
+questao 1 resolvida 
 
 
 import os
+import csv
+
 dirapp = os.path.abspath(__file__)    
 print(dirapp)
 dirapp = os.path.dirname(dirapp)
 print(dirapp)
 
+with open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8') as arquivo_csv:
+    leitor_csv = csv.reader(arquivo_csv, delimiter=';')
 
-#mudar esse trecho
-'''with open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8') as arq_input:
-    linhas = arq_input.readlines()  '''
+    # Criando a lista para armazenar os dados
+    lista_servidores = []
 
+    # Processando os dados do arquivo
+    for linha in leitor_csv:
+        sigla_campus = linha[0]
 
-lstdados = [linha.strip().split(';') for linha in linhas[1:]]
-# Criando uma lista para armazenar os dados de contagem de cada campus
-campi = []
-# Iterando sobre as linhas de dados e contando os tipos de campus
-for linha in lstdados:       
-    sigla_campus = linha[0]
-    tipo_servidor = linha[1]
- 
-    campus_existente = None
-    for campus in campi:
-        if campus[0] == sigla_campus:
-            campus_existente = campus
-            break
+        try:
+            qtd_docentes = int(linha[1])
+            qtd_tecnicos = int(linha[2])
 
-    if campus_existente is None:
-        campus_existente = [sigla_campus, 0, 0]
-        campi.append(campus_existente)
+            # Criando a sub-lista com as informações do campus
+            campus_info = [sigla_campus, qtd_docentes, qtd_tecnicos]
 
-    if tipo_servidor == 'Docente':
-        campus_existente[1] += 1
-    elif tipo_servidor == 'Técnico Administrativo':
-        campus_existente[2] += 1
+            # Adicionando a sub-lista à lista principal
+            lista_servidores.append(campus_info)
+        except ValueError:
+            # Ignorando a linha se não for possível converter os valores para int
+            print(f"Ignorando linha inválida: {linha}")
 
-# Exibindo as contagens de cada campus
-for campus in lstdados:
-    print(f"Campus: {campus[0]}")
-    print(f"Quantidade de docentes: {campus[1]}")
-    print(f"Quantidade de técnicos administrativos: {campus[2]}")
-   
-# Salvando os dados em um arquivo
-with open('servidores_campi.csv', 'w', encoding='utf-8') as arq_output:
-    arq_output.write('sigla_campus;docentes;tecnicos_administrativos\n')
-    for campus in campi:
-        arq_output.write(';'.join(map(str, campus)) + '\n')
-arq_output.close()
+# Exibindo a lista na tela
+for campus_info in lista_servidores:
+    print(campus_info)
+
+# Salvando a lista em um arquivo servidores_campi.csv
+with open('servidores_campi.csv', 'w', encoding='utf-8', newline='') as arquivo_csv:
+    escritor_csv = csv.writer(arquivo_csv, delimiter=';')
+
+    # Escrevendo os dados no arquivo
+    escritor_csv.writerow(['Sigla Campus', 'Quantidade de Docentes', 'Quantidade de Técnicos'])
+    for campus_info in lista_servidores:
+        escritor_csv.writerow(campus_info)
 
 
 
 
-
+questao 2 
+'''Montar uma lista apenas dos docentes, onde cada posição deverá ser uma sub-lista.
+A primeira posição de cada sub-lista deverá ser a disciplina de ingresso do docente e a segunda posição a quantidade de docentes daquela disciplina. Ordenar alfabeticamente pela disciplina de ingresso;
+Essa lista deverá ser exibida na tela e em seguida deverá ser salva em um arquivo chamado docentes_disciplinas.csv (separar os dados por ;);
+Arquivos de resposta Questão 1'''
 
 
 
@@ -65,8 +62,7 @@ arq_output.close()
 
 
 
-
-ARQUIVO
+ARQUIVO questao 1
 categoria;cargo;setor_siape;disciplina_ingresso;setor_suap;nome;funcao;jornada_trabalho;telefones_institucionais;matricula;curriculo_lattes;campus;url_foto_75x100
 docente;PROFESSOR ENS BASICO TECN TECNOLOGICO;DIAC/ZL;Didática;DIAC/ZL;Abigail Noadia Barbalho da Silva;FAG-IFRN - UAB/IFRN / FAG-IFRN - CESPEP/ZL;DEDICACAO EXCLUSIVA;(84) 3092-8915 (ramal: 8915);1895370;;ZL;/media/fotos/75x100/98189.F0xg7aLNxBHA.jpg
 docente;PROF ENS BAS TEC TECNOLOGICO-SUBSTITUTO;DIAC/MO;None;DIAC/MO;Abimael Esdras Carvalho de Moura Lira;;40 HORAS SEMANAIS;(84) 3422-2669 (ramal: 2669);3268131;;MO;/media/fotos/75x100/387388.o9YeUaXaDOSo.jpg
