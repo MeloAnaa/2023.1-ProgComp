@@ -1,49 +1,71 @@
-questao 1 resolvida 
+questao 1 corrigir
 
 
 import os
 import csv
 
-dirapp = os.path.abspath(__file__)    
+dirapp = os.path.abspath(__file__)
 print(dirapp)
 dirapp = os.path.dirname(dirapp)
 print(dirapp)
 
-with open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8') as arquivo_csv:
-    leitor_csv = csv.reader(arquivo_csv, delimiter=';')
+# Abertura do arquivo CSV
+arquivo_csv = open('relacao_servidores_ifrn.csv', 'r', encoding='utf-8')
+leitor_csv = csv.reader(arquivo_csv, delimiter=';')
 
-    # Criando a lista para armazenar os dados
-    lista_servidores = []
+# Criando a lista para armazenar os dados
+lista_servidores = []
 
-    # Processando os dados do arquivo
-    for linha in leitor_csv:
-        sigla_campus = linha[0]
+# Processando os dados do arquivo
+for linha in leitor_csv:
+    sigla_campus = linha[2]
 
-        try:
-            qtd_docentes = int(linha[1])
-            qtd_tecnicos = int(linha[2])
+    try:
 
-            # Criando a sub-lista com as informações do campus
-            campus_info = [sigla_campus, qtd_docentes, qtd_tecnicos]
 
-            # Adicionando a sub-lista à lista principal
-            lista_servidores.append(campus_info)
-        except ValueError:
-            # Ignorando a linha se não for possível converter os valores para int
-            print(f"Ignorando linha inválida: {linha}")
+
+
+
+  ---->      # quantidade de docente do campus e a quantidade de tecnicos administrativos
+
+
+
+
+         qtd_docentes = int(linha[0]) 
+         qtd_tecnicos = int(linha[2]) 
+
+
+
+        # Criando a sublista com as informações do campus
+         campus_info = [sigla_campus, qtd_docentes, qtd_tecnicos]
+
+        # Adicionando a sublista à lista principal
+         lista_servidores.append(campus_info)
+    except ValueError:
+        # Ignorando a linha se não for possível converter os valores para int
+        print(f"Ignorando linha invalida: {linha}")
+        
+
+
+# Fechamento do arquivo CSV
+arquivo_csv.close()
 
 # Exibindo a lista na tela
 for campus_info in lista_servidores:
     print(campus_info)
 
 # Salvando a lista em um arquivo servidores_campi.csv
-with open('servidores_campi.csv', 'w', encoding='utf-8', newline='') as arquivo_csv:
-    escritor_csv = csv.writer(arquivo_csv, delimiter=';')
+arquivo_csv = open('servidores_campi.csv', 'w', encoding='utf-8', newline='')
+escritor_csv = csv.writer(arquivo_csv, delimiter=';')
 
-    # Escrevendo os dados no arquivo
-    escritor_csv.writerow(['Sigla Campus', 'Quantidade de Docentes', 'Quantidade de Técnicos'])
-    for campus_info in lista_servidores:
-        escritor_csv.writerow(campus_info)
+# Escrevendo os dados no arquivo
+escritor_csv.writerow(['Sigla Campus', 'Quantidade de Docentes', 'Quantidade de Técnicos'])
+for campus_info in lista_servidores:
+    escritor_csv.writerow(campus_info)
+
+# Fechamento do arquivo CSV
+arquivo_csv.close()
+
 
 
 
