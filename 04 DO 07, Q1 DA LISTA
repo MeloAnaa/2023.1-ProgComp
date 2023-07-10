@@ -1,6 +1,5 @@
 questao 1 corrigir
 
-
 import os
 import csv
 
@@ -26,14 +25,13 @@ for linha in leitor_csv:
 
 
 
-  ---->      # quantidade de docente do campus e a quantidade de tecnicos administrativos
+        # quantidade de docente do campus e a quantidade de tecnicos administrativos
 
 
 
 
          qtd_docentes = int(linha[0]) 
          qtd_tecnicos = int(linha[2]) 
-
 
 
         # Criando a sublista com as informações do campus
@@ -43,8 +41,7 @@ for linha in leitor_csv:
          lista_servidores.append(campus_info)
     except ValueError:
         # Ignorando a linha se não for possível converter os valores para int
-        print(f"Ignorando linha invalida: {linha}")
-        
+       print(f"ignorando linha invalida{linha}")
 
 
 # Fechamento do arquivo CSV
@@ -59,13 +56,12 @@ arquivo_csv = open('servidores_campi.csv', 'w', encoding='utf-8', newline='')
 escritor_csv = csv.writer(arquivo_csv, delimiter=';')
 
 # Escrevendo os dados no arquivo
-escritor_csv.writerow(['Sigla Campus', 'Quantidade de Docentes', 'Quantidade de Técnicos'])
+escritor_csv.writerow([f'Sigla Campus:{sigla_campus}', 'Quantidade de Docentes:{qtd_docentes}', 'Quantidade de Técnicos:{qtd_tecnicos}'])
 for campus_info in lista_servidores:
     escritor_csv.writerow(campus_info)
 
 # Fechamento do arquivo CSV
 arquivo_csv.close()
-
 
 
 
