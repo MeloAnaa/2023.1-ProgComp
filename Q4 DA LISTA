@@ -1,0 +1,70 @@
+# Criando uma lista com as cédulas e suas quantidades
+cedulas = [[100, 0, 0], [50, 0, 0], [20, 0, 0], [10, 0, 0], [5, 0, 0], [2, 0, 0]]
+
+# Solicitando ao usuário a quantidade de cada cédula
+for i in range(len(cedulas)):
+    qtd = int(input(f"Quantas cédulas de R$ {cedulas[i][0]} você deseja inserir?\n"))
+    cedulas[i][1] = cedulas[i][2] = qtd # Quantidade inicial e disponível
+
+# Criando uma lista para armazenar os saques realizados
+saques = []
+
+# Iniciando o loop de saques
+continuar = "S"
+while continuar == "S":
+    # Solicitando o valor do saque
+    valor = int(input("Qual valor você deseja sacar?\n"))
+
+    # Verificando se o valor é válido (múltiplo de 2 e menor ou igual ao saldo total)
+    saldo_total = sum([c[0] * c[2] for c in cedulas]) # Calculando o saldo total
+    if valor % 2 != 0 or valor > saldo_total:
+        print("Valor inválido. Tente novamente.")
+        continue
+
+    # Criando uma lista para armazenar as cédulas do saque atual
+    saque_atual = []
+
+    # Percorrendo as cédulas em ordem decrescente de valor
+    for i in range(len(cedulas) - 1, -1, -1):
+        # Calculando a quantidade de cédulas necessárias e disponíveis para o valor restante
+        qtd_necessaria = min(valor // cedulas[i][0], cedulas[i][2])
+
+        # Atualizando o valor restante e a quantidade disponível de cédulas
+        valor -= qtd_necessaria * cedulas[i][0]
+        cedulas[i][2] -= qtd_necessaria
+
+        # Adicionando a quantidade de cédulas ao saque atual
+        saque_atual.append(qtd_necessaria)
+
+    # Adicionando o saque atual à lista de saques
+    saques.append(saque_atual)
+
+    # Informando ao usuário as cédulas dispensadas e o valor total do saque
+    print("Cédulas dispensadas:")
+    for i in range(len(cedulas)):
+        if saque_atual[i] > 0:
+            print(f"{saque_atual[i]} de R$ {cedulas[i][0]}")
+    valor_total = sum([saque_atual[i] * cedulas[i][0] for i in range(len(cedulas))])
+    print(f"Valor total do saque: R$ {valor_total}")
+
+    # Perguntando se deseja fazer um novo saque
+    continuar = input("Deseja fazer um novo saque? (S/N)\n").upper()
+
+# Finalizando o programa e gerando os arquivos CSV
+
+# Criando o primeiro arquivo com as quantidades iniciais e disponíveis de cada cédula
+with open("cedulas.csv", "w") as arquivo:
+    arquivo.write("Cedula;Quantidade Inicial;Quantidade Disponivel\n")
+    for i in range(len(cedulas)):
+        arquivo.write(f"{cedulas[i][0]};{cedulas[i][1]};{cedulas[i][2]}\n")
+
+# Criando o segundo arquivo com as informações de cada saque
+with open("saques.csv", "w") as arquivo:
+    arquivo.write("Saque;Cedula;Quantidade;Valor\n")
+    for i in range(len(saques)):
+        for j in range(len(cedulas)):
+            if saques[i][j] > 0:
+                arquivo.write(f"{i + 1};{cedulas[j][0]};{saques[i][j]};{cedulas[j][0] * saques[i][j]}\n")
+
+# Agradecendo ao usuário pela interação
+print("Obrigado por usar o caixa eletrônico. Os arquivos CSV foram gerados com sucesso.")
