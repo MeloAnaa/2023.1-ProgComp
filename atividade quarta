@@ -1,51 +1,35 @@
 import os
+import csv
 
 # Obtendo o diretório do programa
 dirApp = os.path.abspath(__file__)
 dirApp = os.path.dirname(dirApp) 
 
+# Criando o caminho do arquivo de input usando o módulo os.path
+input_path = os.path.join(dirApp, 'servidores_ifrn.csv')
+
 # Abrindo o arquivo de input em modo somente de leitura
-arq_input = open(dirApp + '\\servidores_ifrn.csv', 'r', encoding='utf-8')
+arq_input = open(input_path, 'r', encoding='utf-8')
 
-# Lendo a linha de cabecalho
-lstCabecalhos = list()
-lstCabecalhos.extend(arq_input.readline()[:-1].split(';'))
+# Criando um leitor de csv
+reader = csv.reader(arq_input, delimiter=';')
 
-# Lendo as linhas de dados
-dictServidores = dict()
-while True:
-    linha = arq_input.readline()[:-1]
-    if not linha: break
-    linha = linha.split(';')
-    dictServidores[linha[9]] = dict(zip(lstCabecalhos,linha))
+# Lendo a linha de cabeçalho e obtendo os índices dos campos desejados
+cabecalho = reader.__next__()
+nome_index = cabecalho.index('nome')
+matricula_index = cabecalho.index('matricula')
+campus_index = cabecalho.index('campus')
+
+# Imprimindo a linha de cabeçalho
+print('{:30} {:10} {:20}'.format('nome', 'matricula', 'campus'))
+
+# Iterando sobre as linhas do arquivo
+for linha in reader:
+    # Verificando se a categoria é docente
+    if linha[cabecalho.index('categoria')] == 'docente':
+        # Imprimindo o nome, a matrícula e o campus formatados
+        print('{:30} {:10} {:20}'.format(linha[nome_index], linha[matricula_index], linha[campus_index]))
 
 # Fechando o arquivo de input
 arq_input.close()
 
-
-filtro = lambda f:[1] ['categoria'] == 'docente'
-dictdocentes = dict()
-dictdocentes = dict(filter(filtro,dictdocentes.items())) 
-
-
-
-#atividade 
-#saida:    nome|       matricula |    campus  |   todos aninhados. 
-
-#aninhamento de strings :
-#print(f'{nome > x
-              < x
-#obs: entre o nome e a matricula o espaco precisa ser 10
-
-#como resolver:
-      
-max_caract = 0
-for x in dictdocentes.items():
-     if len(x['nome']) > max_caract:
-      max_caract = len(x['nome'])   
-
-
-
-
-arquivo
-servidores_ifrn.csv
