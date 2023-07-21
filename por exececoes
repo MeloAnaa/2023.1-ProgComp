@@ -1,0 +1,58 @@
+import zipfile
+
+def main():
+    # Pergunte ao usuário o ano para o qual deseja importar os dados
+    ano = input("Qual ano você gostaria de importar? (2020-2023) ")
+
+    # Verifique se o ano está dentro do intervalo especificado
+    if ano < 2020 or ano > 2023:
+        print("Ano inválido.")
+        sys.exit()
+
+    # Crie um dicionário para armazenar os dados dos jogadores
+    jogadores = {}
+
+    # Importe os arquivos do Cartola FC para o ano especificado
+    with zipfile.ZipFile("data_cartola_fc_" + ano + ".zip") as zip_file:
+        for arquivo in zip_file.namelist():
+            with zip_file.open(arquivo) as f:
+                for linha in f:
+                    jogador = {}
+                    for key, value in linha.decode().split("|"):
+                        jogador[key] = value
+                    jogadores[jogador["id"]] = jogador
+
+    # Solicite ao usuário um dos esquemas táticos
+    esquema = input("Qual formação tática você gostaria de usar? (3-4-2, 3-5-2, 4-3-3, 4-4-2, 4-5-1, 5-3-2, 5-4-1) ")
+
+    # Verifique se o esquema tático está dentro do intervalo especificado
+    if esquema not in ["3-4-2", "3-5-2", "4-3-3", "4-4-2", "4-5-1", "5-3-2", "5-4-1"]:
+        print("Formatão tática inválida.")
+        sys.exit()
+
+    # Selecione os jogadores com a maior pontuação em cada posição
+    melhores_jogadores = {}
+    for posicao in ["goleiro", "lateral", "zagueiro", "meia", "atacante"]:
+        melhores_jogadores[posicao] = max(jogadores.values(), key=lambda jogador: jogador["pontos"] / jogador["jogos"])
+
+    # Imprima a seleção de jogadores
+    print("Seleção de jogadores:")
+    for posicao, jogador in zip(["Goleiro", "Lateral", "Zagueiro", "Meia", "Atacante"], melhores_jogadores):
+        print(f"{posicao}: {jogador['nome']} ({jogador['pontos']} pontos / {jogador['jogos']} jogos)")
+
+    # Selecione os jogadores com a maior pontuação para o esquema tático escolhido
+    selecionados = {}
+    for posicao, quantidade in [("goleiro", 1), ("lateral", 0), ("zagueiro", quantidade), ("meia", quantidade), ("atacante", quantidade)]:
+        selecionados[posicao] = []
+        for jogador in melhores_jogadores[posicao]:
+            if len(selecionados[posicao]) < quantidade:
+                selecionados[posicao].append(jogador)
+
+    # Imprima a seleção de jogadores
+    print("Seleção de jogadores para o esquema tático escolhido:")
+    for posicao, jogadores in selecionados.items():
+        print(f"{posicao}: {jogadores}")
+
+
+if __name__ == "__main__":
+    main()
